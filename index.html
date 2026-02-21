@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glonetech Solutions</title>
+<link rel="stylesheet" href="style.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+<div class="nav-left">
+    <a href="tel:+18001234567" class="contact-text">+1 (800) 123-4567</a>
+    <a href="tel:+18001234567" class="phone-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.9.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.5 22 2 13.5 2 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.2 2.7.6 3.9.1.4 0 .8-.3 1.1l-2.2 2.2z"/>
+        </svg>
+    </a>
+</div>
+
+    <div class="nav-logo">
+        <a href="#"><img src="./GLONE TECH Logo -Transparent.png" alt="Glonetech Logo"></a>
+    </div>
+
+    <div class="nav-right">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!--hamburger dropdown-->
+<div class="menu-overlay" id="menuOverlay">
+
+    <button class="menu-close" id="menuClose">&times;</button>
+
+    <div class="menu-content">
+
+        <img src="./GLONE TECH Logo -Transparent.png" class="menu-logo">
+
+        <ul class="menu-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+    </div>
+</div>
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+
+    <div class="video-wrapper">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="./oraimo (1).mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="hero-overlay"></div>
+    <div class="animated-gradient"></div>
+
+    <div class="hero-content">
+        <h1>
+            We Build <br>
+            Powerful Digital <br>
+            Experiences.
+        </h1>
+
+        <p>
+            Glonetech Solutions is a creative digital marketing agency
+            crafting bold brands, immersive media and unforgettable growth strategies.
+        </p>
+
+        <button class="hero-btn">Are you ready?</button>
+    </div>
+
+</section>
+
+<!--INTRO SECTION-->
+
+<!-- INTRO VIDEO SECTION -->
+<section class="intro-video-section">
+    <div class="video-preview" id="videoPreview">
+        <video muted loop autoplay playsinline>
+            <source src="./oraimo (1).mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+<!-- VIDEO POPUP MODAL -->
+<div class="video-modal" id="videoModal">
+    <div class="modal-content">
+        <button class="close-btn" id="closeVideo">&times;</button>
+        <video id="modalVideo" muted controls>
+            <source src="./oraimo (1).mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+
+<!-- PAIN POINTS SECTION -->
+<section class="pain-points-section">
+    <div class="container">
+        <h2>We Know Your <span class="highlight">Struggles</span></h2>
+        <p>
+            Running the <span class="highlight">creative side</span> of your business isn’t always glamorous.  
+            Between trying to capture the perfect <span class="highlight">Instagram moment</span> and making sure your videos don’t look like a potato, we get it, it’s tough.
+        </p>
+        <p>
+            <span class="highlight">Business owners</span>, <span class="highlight">event organizers</span>, <span class="highlight">organizations</span>, and even <span class="highlight">solo creatives</span> face the same problems: deadlines sneak up like ninjas, budgets get tight, and finding the right creative talent feels like searching for Bigfoot.
+        </p>
+        <p>
+            That’s where we come in, we handle the messy, complicated, and sometimes ridiculous world of <span class="highlight">media</span> and <span class="highlight">digital creativity</span>, so you can focus on running your business… or finally enjoy a break without panic attacks.
+        </p>
+    </div>
+</section>
+
+
+
+
+<!-- SWIPER SLIDER SECTION -->
+<section class="swiper-section">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <img src="slide1.jpg" alt="Slide 1">
+                <div class="slide-text">
+                    <h3>Best in Class Media Strategy</h3>
+                    <p>We build campaigns that convert and visuals that captivate.</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="slide2.jpg" alt="Slide 2">
+                <div class="slide-text">
+                    <h3>Creative Storytelling</h3>
+                    <p>Your brand, told in ways people actually remember.</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="slide3.jpg" alt="Slide 3">
+                <div class="slide-text">
+                    <h3>Production & Media Resources</h3>
+                    <p>Producing content that elevates every touchpoint of your brand.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</body>
+</html>
