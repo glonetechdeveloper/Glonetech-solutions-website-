@@ -10,7 +10,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: #fff; /* dark base */
+    background: #f6f1f1; /* dark base */
+    background:
+     linear-gradient(rgba(0,102,255,0.05) 1px, transparent 1px),
+     linear-gradient(90deg, rgba(0,102,255,0.05) 1px, transparent 1px),
+     #f6f1f1;
+    background-size: 60px 60px;
     color: white;
     overflow-x: hidden;
     position: relative;
@@ -489,10 +494,15 @@ body::before {
     cursor: pointer;
 }
 
-
+/*pain points section*/
 .pain-points-section {
     padding: 100px 20px;
-    background: #f9f9f9; /* light background for contrast */
+    background: #f6f1f1; /* light background for contrast */
+    background:
+        linear-gradient(rgba(0,102,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,0.05) 1px, transparent 1px),
+        #f6f1f1;
+     background-size: 60px 60px;
     color: #111;
     text-align: center;
 }
@@ -528,118 +538,308 @@ body::before {
 
 
 
-/* TRUSTED CAROUSEL SECTION */
-.trusted-carousel-section {
-    width: 100%;
-    padding: 80px 0;
-    background: #fff;
-    overflow: hidden;
-    position: relative;
+/*graphics carousel section*/
+/* ===== SWEATPANTS CONTINUOUS CAROUSEL ===== */
+
+.sp-section {
+  position: relative;
+  background: #f6f1f1;
+  background:
+    linear-gradient(rgba(0,102,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,102,255,0.05) 1px, transparent 1px),
+    #f6f1f1;
+  background-size: 60px 60px;
+  padding: 120px 0;
+  overflow: hidden;
 }
 
-.trusted-carousel-section .carousel-container {
-    width: 100%;
-    overflow: hidden;
+/* Track animation */
+.sp-track {
+  display: flex;
+  gap: 35px;
+  width: max-content;
+  animation: scrollInfinite 40s linear infinite;
 }
 
-.carousel-track {
-    display: flex;
-    gap: 40px;
-    animation: scrollLoop 20s linear infinite;
+/* Continuous motion */
+@keyframes scrollInfinite {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-.carousel-item {
-    flex: 0 0 auto;
-    width: 160px;
+/* Card styling */
+.sp-card {
+  width: 260px;
+  height: 540px;
+  border-radius: 36px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
 }
 
-.carousel-item img {
-    width: 100%;
-    object-fit: contain;
-    display: block;
-}
+/* Staggered fade in */
+.sp-card:nth-child(1) { animation-delay: 0.1s; }
+.sp-card:nth-child(2) { animation-delay: 0.2s; }
+.sp-card:nth-child(3) { animation-delay: 0.3s; }
+.sp-card:nth-child(4) { animation-delay: 0.4s; }
+.sp-card:nth-child(5) { animation-delay: 0.5s; }
+.sp-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Continuous scrolling animation */
-@keyframes scrollLoop {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* RESPONSIVE */
-@media(max-width: 992px){
-    .carousel-item {
-        width: 120px;
-    }
-}
-
-@media(max-width: 600px){
-    .carousel-item {
-        width: 90px;
-        gap: 20px;
-    }
-}
-
-
-/*swiper section*/
-.swiper-section {
-    width: 100%;
-    padding: 100px 0;
-    background: #fff;
-}
-
-.mySwiper {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-}
-
-.slide-text {
-    text-align: center;
-    margin-top: 25px;
-}
-
-.slide-text h3 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #111;
-}
-
-.slide-text p {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: #444;
-}
-
-/* Swiper Controls */
-.swiper-button-next,
-.swiper-button-prev {
-    color: #007BFF;
-}
-
-.swiper-pagination-bullet {
-    background: #ccc;
+@keyframes fadeInUp {
+  to {
     opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.swiper-pagination-bullet-active {
-    background: #007BFF;
+.sp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+}
+
+/* Pop out hover */
+.sp-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Fade edges */
+.fade-left,
+.fade-right {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #f6f1f1, transparent);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #f6f1f1, transparent);
+}
+
+/* Pause on hover */
+.sp-section:hover .sp-track {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .sp-card {
+    width: 200px;
+    height: 415px;
+  }
+
+  .sp-track {
+    gap: 25px;
+  }
+}
+
+/* ===== MODAL ===== */
+
+.sp-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.sp-modal img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 20px;
+}
+
+.sp-close {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* ===== GLONETECH IMPACT SECTION ===== */
+
+.glo-impact {
+  background: #f6f1f1;
+  color: #000;
+  padding: 140px 8%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0,102,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,102,255,0.05) 1px, transparent 1px),
+    #f6f1f1;
+  background-size: 60px 60px;
+}
+
+.glo-impact::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border: 2px solid rgba(0,102,255,0.2);
+  border-radius: 50%;
+  top: -150px;
+  right: -150px;
+  z-index: 0;
+}
+
+
+.glo-impact::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border: 2px solid rgba(0,102,255,0.2);
+  border-radius: 50%;
+  bottom: -150px;
+  left: -150px;
+  z-index: 0;
+}
+
+.glo-impact-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.glo-impact-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+
+/* Softer, more refined emphasis */
+.glo-emphasis {
+  position: relative;
+  color: #00c6ff;
+  font-weight: 900;
+}
+
+.glo-impact-text {
+  font-size: 1.2rem;
+  color: #070606;
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+
+.glo-impact-btn {
+  display: inline-block;
+  background: #00c6ff;
+  color: #000;
+  padding: 16px 40px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all .3s ease;
+}
+
+.glo-impact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0,198,255,.3);
+}
+
+/* Responsive */
+@media (max-width:768px){
+  .glo-impact {
+    padding: 100px 6%;
+  }
+}
+
+
+
+
+
+/*who we've worked with section*/
+/* ===== PRESS LOGO SECTION ===== */
+
+.glo-press {
+  background: #f6f1f1;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+/* Each row container */
+.logo-row {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 25px 0;
+}
+
+/* Moving track */
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+}
+
+/* LOGO SIZE CONTROL */
+.logo-track img {
+  height: 40px;      /* Controls size */
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity .3s ease;
+  justify-content: center;
+}
+
+.logo-track img:hover {
+  opacity: 1;
+}
+
+/* LEFT MOVEMENT */
+.row-left .logo-track {
+  animation: scrollLeft 35s linear infinite;
+}
+
+/* RIGHT MOVEMENT */
+.row-right .logo-track {
+  animation: scrollRight 35s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .logo-track {
+    gap: 50px;
+  }
+
+  .logo-track img {
+    height: 28px;
+  }
 }

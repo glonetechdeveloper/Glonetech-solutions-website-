@@ -146,28 +146,23 @@ function resetAutoScroll(){
 }
 
 
+//graphics carousel
 
 
+/* Modal functionality */
+const modal = document.getElementById("spModal");
+const modalImg = document.getElementById("modalImage");
+const closeBtn = document.querySelector(".sp-close");
 
-
-
-//swiper slider 
-const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    speed: 2000,
-    slidesPerView: 1,
-    spaceBetween: 40,
-    centeredSlides: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
+document.querySelectorAll(".sp-card img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
 });
+
+closeBtn.onclick = () => modal.style.display = "none";
+
+modal.onclick = e => {
+  if (e.target === modal) modal.style.display = "none";
+};
